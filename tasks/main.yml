@@ -1,0 +1,17 @@
+---
+# kde_plasma_keyboard_settings/tasks/main.yml
+
+- name: 'Make sure the Layout section is present'
+  ansible.builtin.lineinfile:
+    path: '~/.config/kxkbrc'
+    regex: '^[Layout]'
+    line: '[Layout]'
+    mode: '0600'
+
+- name: 'Disable Caps Lock and set PrintScreen key as Compose key'
+  ansible.builtin.lineinfile:
+    path: '~/.config/kxkbrc'
+    regex: '^Options'
+    line: 'Options=caps:none,compose:prsc'
+    insertafter: '^[Layout]'
+    mode: '0600'
