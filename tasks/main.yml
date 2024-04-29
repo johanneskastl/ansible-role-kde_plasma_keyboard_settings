@@ -4,7 +4,7 @@
 - name: 'Make sure the Layout section is present'
   ansible.builtin.lineinfile:
     path: '~/.config/kxkbrc'
-    regex: '^[Layout]'
+    regex: '^\[Layout\]'
     line: '[Layout]'
     mode: '0600'
 
